@@ -16,17 +16,17 @@ def sum_digits(number):
         number //= 10
     return digit_sum
 
-width = int(input("Введите ширину прямоугольника: "))
-height = int(input("Введите высоту прямоугольника: "))
+width = int(input("Введи ширину прямоугольника: "))
+height = int(input("Введи высоту прямоугольника: "))
 area = rectangle_area(width, height)
 print("Площадь прямоугольника:", area)
 
-number = int(input("Введите число: "))
+number = int(input("Введи число: "))
 if is_even(number):
     print("Число четное")
 else:
     print("Число нечетное")
 
-number = int(input("Введите положительное целое число: "))
+number = int(input("Введи положительное целое число: "))
 digit_sum = sum_digits(number)
 print("Сумма цифр в числе:", digit_sum)
