@@ -21,14 +21,14 @@ def square_root(x):
     if x >= 0:
         return x ** 0.5
     else:
-        return "Ошибка: извлечение корня из отрицательного числа"
+        return "Нельзя найти корень из отрицательного числа"
 
 def percentage(x, y):
     return (x * y) / 100
 
 def factorial(x):
     if x < 0:
-        return "Ошибка: факториал определен только для неотрицательных чисел"
+        return "Факториал есть только для неотрицательных чисел"
     elif x == 0:
         return 1
     else:
@@ -45,8 +45,8 @@ def cos(x):
 def tan(x):
     return math.tan(math.radians(x))
 
-number1 = float(input("Введите первое число: "))
-number2 = float(input("Введите второе число: "))
+number1 = float(input("Введи первое число: "))
+number2 = float(input("Введи второе число: "))
 
 print("Сумма:", add(number1, number2))
 print("Разность:", subtract(number1, number2))
