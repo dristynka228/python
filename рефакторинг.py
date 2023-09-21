@@ -12,7 +12,7 @@ def divide(x, y):
     if y != 0:
         return x / y
     else:
-        return "Ошибка: деление на ноль"
+        return "Нельзя делить на ноль"
 
 def power(x, y):
     return x ** y
