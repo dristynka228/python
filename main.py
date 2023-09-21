@@ -1,78 +1,62 @@
 import math
+def add(x, y):
+    return x + y
 
-print("Калькулятор")
+def subtract(x, y):
+    return x - y
 
-while True:
-    print("Выбери операцию:")
-    print("1. Сложение")
-    print("2. Вычитание")
-    print("3. Умножение")
-    print("4. Деление")
-    print("5. Синус")
-    print("6. Косинус")
-    print("7. Тангенс")
-    print("8. Квадратный корень")
-    print("9. Факториал")
-    print("10.Возведение в степень")
-    print("0. Выход")
+def multiply(x, y):
+    return x * y
 
-    choice = input("Введи номер того, что хочешь сделать (0-10): ")
-
-    if choice == '0':
-        print("Пока-пока")
-        break
-
-    elif choice in ['1', '2', '3', '4']:
-        num1 = float(input("Введи первое число: "))
-        num2 = float(input("Введи второе число: "))
-
-        if choice == '1':
-            result = num1 + num2
-            print("Результат: ", result)
-        elif choice == '2':
-            result = num1 - num2
-            print("Результат: ", result)
-        elif choice == '3':
-            result = num1 * num2
-            print("Результат: ", result)
-        elif choice == '4':
-            if num2 != 0:
-                result = num1 / num2
-                print("Результат: ", result)
-            else:
-                print("Ошибка, нельзя делить на ноль")
-
-    elif choice in ['5', '6', '7']:
-        angle = float(input("Введи значение угла: "))
-        radian = math.radians(angle)
-
-        if choice == '5':
-            result = math.sin(radian)
-            print("Результат: ", result)
-        elif choice == '6':
-            result = math.cos(radian)
-            print("Результат: ", result)
-        elif choice == '7':
-            result = math.tan(radian)
-            print("Результат: ", result)
-
-    elif choice == '8':
-        number = float(input("Введи число для извлечения квадратного корня: "))
-        result = math.sqrt(number)
-        print("Результат: ", result)
-
-    elif choice == '9':
-            number = int(input("Введи число для нахождения факториала: "))
-            if number >= 0:
-                result = math.factorial(number)
-                print("Результат факториала:", result)
-            else:
-                print("Факториал есть только для положительных чисел")
-
-    elif choice == '10':
-        num1 = float(input("Введи число, которое хочешь возвести в степень: "))
-        num2 = float(input("Введи степень: "))
-        result = num1 ** num2
-        print("Результат степени: ", result)
+def divide(x, y):
+    if y != 0:
+        return x / y
     else:
-        print("Сказано, от 0 до 10 и никакой другой символ")
+        return "Нельзя делить на ноль"
+
+def power(x, y):
+    return x ** y
+
+def square_root(x):
+    if x >= 0:
+        return x ** 0.5
+    else:
+        return "Извлечение корня из отрицательного числа"
+
+def percentage(x, y):
+    return (x * y) / 100
+
+def factorial(x):
+    if x < 0:
+        return "Факториал есть только для положительных чисел чисел"
+    elif x == 0:
+        return 1
+    else:
+        result = 1
+        for i in range(1, x + 1):
+            result *= i
+        return result
+
+def sin(x):
+    return math.sin(math.radians(x))
+
+def cos(x):
+    return math.cos(math.radians(x))
+
+def tan(x):
+    return math.tan(math.radians(x))
+
+number1 = float(input("Введи первое число: "))
+number2 = float(input("Введи второе число: "))
+
+print("Сумма:", add(number1, number2))
+print("Разность:", subtract(number1, number2))
+print("Произведение:", multiply(number1, number2))
+print("Частное:", divide(number1, number2))
+print("Возведение в степень:", power(number1, number2))
+print("Квадратный корень числа:", square_root(number1))
+print("Процент от числа:", percentage(number1, number2))
+print("Факториал:", factorial(int(number1)))
+print("Синус: ", sin(number1))
+print("Косинус: ", cos(number1))
+print("Тангенс: ", tan(number1))
