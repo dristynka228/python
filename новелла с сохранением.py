@@ -1,6 +1,5 @@
 import json
 import csv
-import os
 
 def start_game():
     print("Выживи в МПТ Часть 1")
