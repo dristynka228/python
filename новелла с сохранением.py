@@ -126,27 +126,29 @@ def episode_3(game_state):
 
 start_game()
 
+def save_data(data):
+    
+    try:
+        with open('data.json') as file:
+            existing_data = json.load(file)
+    except FileNotFoundError:
+        existing_data = []
 
-def save_data(data, file_path):
-    with open(file_path, "w") as file:
-        json.dump(data, file)
+    existing_data.append(data)
 
+    with open('data.json', 'w') as file:
+        json.dump(existing_data, file)
 
-def load_data(file_path):
-    with open(file_path, "r") as file:
+def delete_data():
+    with open('data.json', 'w') as file:
+        file.write('')
+
+def export_to_csv():
+    with open('data.json') as file:
         data = json.load(file)
-    return data
 
-
-def save_to_csv(data, csv_file_path):
-    field_names = ['username', 'score']
-    file_exists = os.path.isfile(csv_file_path)
-
-    with open(csv_file_path, 'a+', newline='') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=field_names)
-
-        if not file_exists:
-            writer.writeheader()
-
+    with open('data.csv', 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(['User', 'Data'])
         for item in data:
-            writer.writerow(item)
+            writer.writerow([item['user'], item['data']])
